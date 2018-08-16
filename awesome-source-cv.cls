@@ -55,7 +55,7 @@
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage{fullpage}
 %\RequirePackage[margin=1.5cm]{geometry}
-\RequirePackage[left=1.5cm, right=1.5cm, top=0.5cm, bottom=0.5cm]{geometry}
+\RequirePackage[left=1.5cm, right=1.5cm, top=0.5cm, bottom=1.5cm]{geometry}
 \RequirePackage{fontawesome}
 \RequirePackage[colorlinks,allcolors=blue]{hyperref}\hypersetup{hidelinks}
 \RequirePackage{titlesec}
@@ -318,7 +318,7 @@
 %      \end{minipage}
       			     	
 		}{}
-		\medskip
+		\bigskip
 	}
 }
 
