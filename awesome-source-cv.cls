@@ -55,7 +55,7 @@
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage{fullpage}
 %\RequirePackage[margin=1.5cm]{geometry}
-\RequirePackage[left=1.5cm, right=1.5cm, top=1cm, bottom=1cm]{geometry}
+\RequirePackage[left=1.5cm, right=1.5cm, top=0.5cm, bottom=0.5cm]{geometry}
 \RequirePackage{fontawesome}
 \RequirePackage[colorlinks,allcolors=blue]{hyperref}\hypersetup{hidelinks}
 \RequirePackage{titlesec}
@@ -283,9 +283,9 @@
 		\ifdef{\@photodiameter}{
 			\begin{minipage}{\@photodiameter}
 				\begin{tikzpicture}%
-				\node[circle, text=white, minimum size=3.5cm,
+				\node[circle, text=white, minimum size=3.2cm,
 				path picture={\node at (path picture bounding box.center){
-						\includegraphics[width=3.5cm]{\@photo}
+						\includegraphics[width=3.2cm]{\@photo}
 					};
 				}]{ };
 				\end{tikzpicture}				
