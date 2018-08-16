@@ -94,7 +94,7 @@
 %\definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{breaklinks}
 
-\pagestyle{empty}                         % non-numbered pages
+%\pagestyle{empty}                         % non-numbered pages
 %\font\fb=''[cmr10]''                      % for use with \LaTeX command
 
 % Setup CV sections
@@ -318,7 +318,7 @@
 %      \end{minipage}
       			     	
 		}{}
-		\bigskip
+		\medskip
 	}
 }
 
