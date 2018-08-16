@@ -49,14 +49,15 @@
 % Dependences
 %A Few Useful Packages
 \RequirePackage[frenchb]{babel}
-\RequirePackage[utf8]{luainputenc}
+%\RequirePackage[utf8]{luainputenc}  % luatex
 \RequirePackage{fontspec} 					                 % for loading fonts
 \RequirePackage{url,parskip} 	    % other packages for formatting
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage{fullpage}
-\RequirePackage[margin=1.5cm]{geometry}
+%\RequirePackage[margin=1.5cm]{geometry}
+\RequirePackage[left=1.5cm, right=1.5cm, top=1cm, bottom=1cm]{geometry}
 \RequirePackage{fontawesome}
-\RequirePackage{hyperref}\hypersetup{hidelinks}
+\RequirePackage[colorlinks,allcolors=blue]{hyperref}\hypersetup{hidelinks}
 \RequirePackage{titlesec}
 \RequirePackage{array}
 \RequirePackage{enumitem}
@@ -66,7 +67,8 @@
 \RequirePackage[skins]{tcolorbox}
 
 
-\DeclareUnicodeCharacter{00E9}{\'{e}}
+% \DeclareUnicodeCharacter{00E9}{\'{e}}  %luatex
+
 % Define default accent colors
 \definecolor{basecolor}{HTML}{000066}       %BLUE
 
@@ -161,8 +163,17 @@
 \newcommand{\cvtag}[1]{%
   %\tikz[baseline]\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
 \begin{tikzpicture}
-	\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
+	\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.4ex,text height=2ex,text depth=.25ex]{#1};
 \end{tikzpicture}	  
+}
+
+% Create a chinese tag
+% Usage: \cvtag{<tag label>}
+\newcommand{\cvtagcn}[1]{%
+	%\tikz[baseline]\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
+	\begin{tikzpicture}
+	\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.4ex,text height=2ex,text depth=.25ex]{#1};
+	\end{tikzpicture}	  
 }
 
 % Render author's name
@@ -207,7 +218,7 @@
 
 % Render author's homepage
 % Usage: \homepage{<homepage>}
-\newcommand*{\homepage}[1]{\sociallink{\homeSymbol}{http://#1}{#1}}
+\newcommand*{\homepage}[1]{\sociallink{\homeSymbol}{http://#1}{[个人主页] #1}}
 
 % Render author's homepage
 % Usage: \weibo{<weibo>}
@@ -272,9 +283,9 @@
 		\ifdef{\@photodiameter}{
 			\begin{minipage}{\@photodiameter}
 				\begin{tikzpicture}%
-				\node[circle, text=white, minimum size=2.5cm,
+				\node[circle, text=white, minimum size=3.5cm,
 				path picture={\node at (path picture bounding box.center){
-						\includegraphics[width=2.5cm]{\@photo}
+						\includegraphics[width=3.5cm]{\@photo}
 					};
 				}]{ };
 				\end{tikzpicture}				
@@ -294,20 +305,13 @@
 			\end{minipage}  	    
 		\ifdef{\@photodiameter}{
 			\begin{minipage}{\@photodiameter}
-%				\begin{tikzpicture}%
-%				\node[circle, text=white, minimum size=2.5cm,
-%				path picture={\node at (path picture bounding box.center){
-%						\includegraphics[width=2.5cm]{\@photo}
-%					};
-%				}]{ };
-%				\end{tikzpicture}		
-				\begin{tikzpicture}%
-				\node[text=white, minimum width=2.8cm, minimum height=2.8cm, %minimum size=2.8cm,
-				path picture={\node at (path picture bounding box.center){
-						\includegraphics[width=2.5cm]{\@photo}
-					};
-				}]{ };
-				\end{tikzpicture}			
+			      \begin{tikzpicture}%
+					\node[circle, text=white, minimum size=2.5cm,
+						path picture={\node at (path picture bounding box.center){
+							\includegraphics[width=2.5cm]{\@photo}
+						};
+					}]{ };
+			      \end{tikzpicture}				
 			\end{minipage} 			
 %      \begin{minipage}{\@photodiameter}
 %      	\tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
@@ -359,6 +363,17 @@
   \end{longtable}
 }
 
+
+% Render an experience in the experiences environment
+% Usage: 
+% \tags {<Technology list>}
+
+\newcommand\tags[1]{
+	\foreach \n in {#1}{\cvtagcn{\n}} 
+}
+
+
+
 % Render an experience in the experiences environment
 % Usage: 
 % \experience
@@ -392,5 +407,6 @@
                    	\end{minipage}										\\*
                  & \footnotesize{\foreach \n in {#9}{\cvtag{\n}}} 	\\
   }
+
 
 \newcommand\emptySeparator{\multicolumn{2}{c}{}\\}
