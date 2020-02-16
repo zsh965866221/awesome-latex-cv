@@ -11,30 +11,60 @@
 \sectionTitle{项目经历}{\faCode}
 \begin{experiences}
  \experience
-    {2016年7月}   { CEC4J}{ 个人项目}{ 非常简单的完全对等的P2P框架}
-    { 2016年4月} {
+    { 2019年7月 }  { 智能辅助诊断系统 }{ 后端 }{ 第三方数据库接口 }
+    { 2019年10月 } {
                       \begin{itemize}
-                        \item 以Jxta为灵感，基于Java Socket和XML实现的非常简单的完全对等的P2P框架；
-                        \item 通过传输XML字符串实现传输结构化内容；
-                        \item 由于完全对等每个组群内的节点以心跳数来维护整个组群列表；
-                        \item 基于该框架实现了一个简单的局域网聊天工具。
-                        \item \faGithub: \link{https://github.com/zsh965866221/CEC4J}{CEC4J}
+                        \item 为系统提供访问医院不同类型数据库的统一接口
+                        \item 实现了基于视图和存储过程访问MySQL、SQLServer、Oracle的统一接口
+                        \item 抽象出Column、Condition和Parameter
+                        \item 抽象出不同类型数据库查询接口，可以接受SQL串并以Column返回
+                        \item 根据医院提供的配置自动拼接生成不同数据库类型的SQL串，并交给查询接口
+                        \item \emph{已在医院投入使用}
                       \end{itemize}
                       \vspace{2pt}
                     }
-                    {Java, Java Socket, XML, 点对点, 完全对等}
+                    {C++, 数据库}
+  \experience
+    { 2019年7月 }   { 智能辅助诊断系统 }{ 后端自动化Smoke工具 }{ 设计开发 }
+    { 2019年10月 }  {
+                      \begin{itemize}
+                        \item 功能：快速测试系统后端功能是否符合预期
+                        \item 采用了前后端微服务的设计，把测试功能作为一个接口可以通过http调用和控制
+                        \item 每次收到Json请求，会解析Json并作为参数创建一个Task到Task队列，执行进行会依次从队列里面获取Task并执行测试
+                        \item 把中间抽象为Process，一次Smoke过程可以看成是不同Process的组合，并提供工厂类生成不同类型Process
+                        \item Python和Sanic框架作为后端提供微服务接口
+                        \item 用HTML和JS写了一个简易的前端，可以方便以前端浏览器的方式（可在浏览器控制测试参数）触发测试
+                        \item 与TFS结合，TFS出包会自动发送json请求开启对该包的自动smoke测试
+                        \item 完成自动化Smoke测试会自动发邮件给相关的人
+                        \item \emph{已在后端内部长时间稳定使用}
+                      \end{itemize}
+                      \vspace{2pt}
+                    }
+                    {Python, js}
+  \experience
+    { 2019年7月 }   { 智能辅助诊断系统 }{ Service端 }{ 前后端 }
+    { 2019年10月 }  {
+                      \begin{itemize}
+                        \item Service端主要为智能辅助诊断系统的维护工程师提供方便的web工具
+                        \item 主要功能包括系统的控制、各种配置文件的修改、控制系统自动升级、系统状态、系统使用情况
+                        \item Python和Snaic框架编写后端，Vue.js前端
+                        \item 从零开始构建该系统
+                        \item \emph{已在医院投入使用}
+                      \end{itemize}
+                      \vspace{2pt}
+                    }
+                    {Python, Vue.js, Redis, Sanic}
   \emptySeparator
   \experience
-    {2015年3月} { Steric Effect}{ 游戏设计/游戏开发}{ 2D视角变换类解密游戏}
-    { 2014年12月}    {
+    { 2019年11月 }  { 冠脉智能辅助诊断系统 }{ 算法 }{ 分段、中心线 }
+    { 至今 }  {
                       \begin{itemize}
-                        \item 2015年微软创新杯东北赛区 参赛项目；
-                        \item 以《Fez》为灵感的一款视角类解密游戏；
-                        \item 玩家通过可转换（4个方向）的2D视角完成在3D迷宫场景中收集物品；
-                        \item 采用Unity3D/C\#开发，涉及到游戏方案设计，场景设计，关卡设计，编码实现等。
-                        \item \faGithub: \link{https://github.com/zsh965866221/Acsender}{Acsender}
+                        \item 冠脉的自动分段，对分割出的冠脉进行自动化分段，分成18段
+                        \item 中心线的平滑和精准性，由于医生需要根据中心线的CPR完成诊断，对中心线的平滑性和精准性要求非常高
+                        \item \href{https://www.zybuluo.com/zsh-o/note/1659960}{\color{blue}基于Snake方法的2D实验}
                       \end{itemize}
                       \vspace{2pt}
                     }
-                    {Unity3D, C\#, 解密, 视角变换}
+                    {C++, Python, Pytorch}
+  
 \end{experiences}
